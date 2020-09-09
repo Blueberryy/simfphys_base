@@ -24,9 +24,9 @@ SWEP.Secondary.Automatic	= false
 SWEP.Secondary.Ammo		= "none"
 
 if (CLIENT) then
-	SWEP.PrintName			= "Vehicle Repair Tool"
-	SWEP.Purpose			= "repairs simfphys vehicles"
-	SWEP.Instructions		= "Primary to repair"
+	SWEP.PrintName			= "#simfphys_weapon_repair_tool"
+	SWEP.Purpose			= "#simfphys_weapon_repair_toolp"
+	SWEP.Instructions		= "#simfphys_weapon_repair_tooli"
 	SWEP.Author			= "Blu"
 	SWEP.Slot			= 1
 	SWEP.SlotPos			= 9

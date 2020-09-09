@@ -1,6 +1,6 @@
 
 TOOL.Category		= "simfphys"
-TOOL.Name			= "#Suspension Editor"
+TOOL.Name			= "#tool.simfphyssuspensioneditor.name"
 TOOL.Command		= nil
 TOOL.ConfigName		= ""
 
@@ -14,10 +14,6 @@ TOOL.ClientConVar[ "damping_f" ] = 2500
 TOOL.ClientConVar[ "damping_r" ] = 2500
 
 if CLIENT then
-	language.Add( "tool.simfphyssuspensioneditor.name", "Suspension Editor" )
-	language.Add( "tool.simfphyssuspensioneditor.desc", "A tool used to edit suspension on simfphys vehicles" )
-	language.Add( "tool.simfphyssuspensioneditor.0", "Left click apply settings. Right click copy settings. Reload to reset" )
-	language.Add( "tool.simfphyssuspensioneditor.1", "Left click apply settings. Right click copy settings. Reload to reset" )
 end
 
 function TOOL:LeftClick( trace )
@@ -154,10 +150,10 @@ function TOOL.BuildCPanel( panel )
 	panel:AddControl( "ComboBox", { MenuButton = 1, Folder = "suspensionedtior", Options = { [ "#preset.default" ] = ConVarsDefault }, CVars = table.GetKeys( ConVarsDefault ) } )
 	
 	panel:AddControl( "Label",  { Text = "" } )
-	panel:AddControl( "Label",  { Text = "--- Front ---" } )
+	panel:AddControl( "Label",  { Text = "#tool.simfphyssuspensioneditor.category_front" } )
 	panel:AddControl( "Slider", 
 	{
-		Label 	= "Front Height",
+		Label 	= "#tool.simfphyssuspensioneditor.front_height",
 		Type 	= "Float",
 		Min 	= "-1",
 		Max 	= "1",
@@ -165,7 +161,7 @@ function TOOL.BuildCPanel( panel )
 	})
 	panel:AddControl( "Slider", 
 	{
-		Label 	= "Front Constant",
+		Label 	= "#tool.simfphyssuspensioneditor.front_constant",
 		Type 	= "Float",
 		Min 	= "0",
 		Max 	= "50000",
@@ -173,17 +169,17 @@ function TOOL.BuildCPanel( panel )
 	})
 	panel:AddControl( "Slider", 
 	{
-		Label 	= "Front Damping",
+		Label 	= "#tool.simfphyssuspensioneditor.front_damping",
 		Type 	= "Float",
 		Min 	= "0",
 		Max 	= "5000",
 		Command = "simfphyssuspensioneditor_damping_f"
 	})
 	panel:AddControl( "Label",  { Text = "" } )
-	panel:AddControl( "Label",  { Text = "--- Rear ---" } )
+	panel:AddControl( "Label",  { Text = "#tool.simfphyssuspensioneditor.category_rear" } )
 	panel:AddControl( "Slider", 
 	{
-		Label 	= "Rear Height",
+		Label 	= "#tool.simfphyssuspensioneditor.rear_height",
 		Type 	= "Float",
 		Min 	= "-1",
 		Max 	= "1",
@@ -191,7 +187,7 @@ function TOOL.BuildCPanel( panel )
 	})
 	panel:AddControl( "Slider", 
 	{
-		Label 	= "Rear Constant",
+		Label 	= "#tool.simfphyssuspensioneditor.rear_constant",
 		Type 	= "Float",
 		Min 	= "0",
 		Max 	= "50000",
@@ -199,7 +195,7 @@ function TOOL.BuildCPanel( panel )
 	})
 	panel:AddControl( "Slider", 
 	{
-		Label 	= "Rear Damping",
+		Label 	= "#tool.simfphyssuspensioneditor.rear_damping",
 		Type 	= "Float",
 		Min 	= "0",
 		Max 	= "5000",

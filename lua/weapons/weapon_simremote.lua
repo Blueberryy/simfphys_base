@@ -29,9 +29,9 @@ function SWEP:SetupDataTables()
 end
 
 if (CLIENT) then
-	SWEP.PrintName		= "Remote Controller"
-	SWEP.Purpose			= "remote controls simfphys vehicles"
-	SWEP.Instructions		= "Left-Click on a simfphys car to link. Press the Use-Key to start remote controlling."
+	SWEP.PrintName		= "#simfphys_weapon_remote_contrl"
+	SWEP.Purpose			= "#simfphys_weapon_remote_contrlp"
+	SWEP.Instructions		= "#simfphys_weapon_remote_contrli"
 	SWEP.Author			= "Blu"
 	SWEP.Slot				= 1
 	SWEP.SlotPos			= 10

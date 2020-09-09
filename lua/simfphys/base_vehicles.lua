@@ -2,7 +2,7 @@ local V = {
 	Name = "HL2 Jeep",
 	Model = "models/buggy.mdl",
 	Class = "gmod_sent_vehicle_fphysics_base",
-	Category = "Half Life 2 / Synergy",
+	Category = "#simfphys.category.hl2_synergy",
 	
 	Members = {
 		Mass = 1700,
@@ -103,7 +103,7 @@ local V = {
 	Name = "HL2 Combine APC",
 	Model = "models/combine_apc.mdl",
 	Class = "gmod_sent_vehicle_fphysics_base",
-	Category = "Half Life 2 / Synergy",
+	Category = "#simfphys.category.hl2_synergy",
 
 	Members = {
 		Mass = 3500,
@@ -188,7 +188,7 @@ local V = {
 	Name = "HL2:EP2 Jalopy",
 	Model = "models/vehicle.mdl",
 	Class = "gmod_sent_vehicle_fphysics_base",
-	Category = "Half Life 2 / Synergy",
+	Category = "#simfphys.category.hl2_synergy",
 
 	Members = {
 		Mass = 1700,
@@ -296,7 +296,7 @@ local V = {
 	Name = "Driveable Couch",
 	Model = "models/props_c17/FurnitureCouch002a.mdl",
 	Class = "gmod_sent_vehicle_fphysics_base",
-	Category = "Base",
+	Category = "#simfphys.category.base",
 	SpawnAngleOffset = 90,
 
 	Members = {
@@ -391,7 +391,7 @@ local V = {
 	Name = "HL2 APC",
 	Model = "models/props_vehicles/apc001.mdl",
 	Class = "gmod_sent_vehicle_fphysics_base",
-	Category = "Half Life 2 / Synergy",
+	Category = "#simfphys.category.hl2_synergy",
 	SpawnOffset = Vector(0,0,50),
 
 	Members = {

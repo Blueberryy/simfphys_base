@@ -1,6 +1,6 @@
 
 TOOL.Category		= "simfphys"
-TOOL.Name			= "#Transmission Editor"
+TOOL.Name			= "#tool.simfphysgeareditor.name"
 TOOL.Command		= nil
 TOOL.ConfigName		= ""
 
@@ -31,10 +31,6 @@ end
 duplicator.RegisterEntityModifier( "gearmod", SetGears )
 
 if CLIENT then
-	language.Add( "tool.simfphysgeareditor.name", "Transmission Editor" )
-	language.Add( "tool.simfphysgeareditor.desc", "A tool used to edit gear ratios on simfphys vehicles" )
-	language.Add( "tool.simfphysgeareditor.0", "Left click apply settings. Right click copy settings. Reload to reset" )
-	language.Add( "tool.simfphysgeareditor.1", "Left click apply settings. Right click copy settings. Reload to reset" )
 end
 
 function TOOL:LeftClick( trace )
@@ -132,7 +128,7 @@ function TOOL.BuildCPanel( panel )
 	local Label = vgui.Create( "DLabel", panel )
 	Label:SetPos( 15, 80 )
 	Label:SetSize( 280, 40 )
-	Label:SetText( "Amount Gears" )
+	Label:SetText( "#tool.simfphysgeareditor.amount_gears" )
 	Label:SetTextColor( Color(0,0,0,255) )
 	
 	local n_slider = vgui.Create( "DNumSlider", panel)
@@ -152,7 +148,7 @@ function TOOL.BuildCPanel( panel )
 			local Label = vgui.Create( "DLabel", Frame )
 			Label:SetPos( 5, yy )
 			Label:SetSize( 275, 40 )
-			Label:SetText( "Gear "..i )
+			Label:SetText( "#tool.simfphysgeareditor.gear"..i )
 			Label:SetTextColor( Color(0,0,0,255) )
 		
 			local g_slider = vgui.Create( "DNumSlider", Frame)
@@ -171,7 +167,7 @@ function TOOL.BuildCPanel( panel )
 		local Label = vgui.Create( "DLabel", Frame )
 		Label:SetPos( 5, yy )
 		Label:SetSize( 275, 40 )
-		Label:SetText( "Reverse" )
+		Label:SetText( "#tool.simfphysgeareditor.reverse" )
 		Label:SetTextColor( Color(0,0,0,255) )
 		local g_slider = vgui.Create( "DNumSlider", Frame)
 		g_slider:SetPos( 5, yy )
@@ -186,7 +182,7 @@ function TOOL.BuildCPanel( panel )
 		local Label = vgui.Create( "DLabel", Frame )
 		Label:SetPos( 5, yy )
 		Label:SetSize( 275, 40 )
-		Label:SetText( "Final Gear (Differential)" )
+		Label:SetText( "#tool.simfphysgeareditor.final_gear" )
 		Label:SetTextColor( Color(0,0,0,255) )
 		local g_slider = vgui.Create( "DNumSlider", Frame)
 		g_slider:SetPos( 5, yy )
@@ -201,7 +197,7 @@ function TOOL.BuildCPanel( panel )
 		local Label = vgui.Create( "DLabel", Frame )
 		Label:SetPos( 30, yy )
 		Label:SetSize( 280, 40 )
-		Label:SetText( "Force Transmission Type" )
+		Label:SetText( "#tool.simfphysgeareditor.force_transmission" )
 		Label:SetTextColor( Color(0,0,0,255) )
 		
 		local CheckBox = vgui.Create( "DCheckBoxLabel", Frame )
@@ -215,7 +211,7 @@ function TOOL.BuildCPanel( panel )
 		local Label = vgui.Create( "DLabel", Frame )
 		Label:SetPos( 5, yy )
 		Label:SetSize( 275, 40 )
-		Label:SetText( "Type \n1 = Automatic\n2 = Manual" )
+		Label:SetText( "#tool.simfphysgeareditor.type_x" )
 		Label:SetTextColor( Color(0,0,0,255) )
 		local g_slider = vgui.Create( "DNumSlider", Frame)
 		g_slider:SetPos( 5, yy )

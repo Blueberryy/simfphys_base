@@ -1,5 +1,5 @@
 TOOL.Category		= "simfphys"
-TOOL.Name			= "#Sound Editor - Engine"
+TOOL.Name			= "#tool.simfphyssoundeditor.title"
 TOOL.Command		= nil
 TOOL.ConfigName		= ""
 
@@ -23,12 +23,7 @@ TOOL.ClientConVar[ "ShiftDown" ] = ""
 TOOL.ClientConVar[ "ShiftUp" ] = ""
 TOOL.ClientConVar[ "RevDown" ] = ""
 
-if CLIENT then
-	language.Add( "tool.simfphyssoundeditor.name", "Engine Sound Editor" )
-	language.Add( "tool.simfphyssoundeditor.desc", "A tool used to edit engine sounds on simfphys vehicles" )
-	language.Add( "tool.simfphyssoundeditor.0", "Left click apply settings. Right click copy settings. Reload to reset" )
-	language.Add( "tool.simfphyssoundeditor.1", "Left click apply settings. Right click copy settings. Reload to reset" )
-	
+if CLIENT then	
 	presets.Add( "simfphys_sound", "Jalopy", {
 		simfphyssoundeditor_High					= "simulated_vehicles/jalopy/jalopy_high.wav",
 		simfphyssoundeditor_HighFadeInRate			= "0.40",
@@ -314,64 +309,64 @@ local function BuildMenu( Frame, panel )
 	local yy = 0
 	
 	if not checked then
-		TextEntry( Frame, "Idle Sound:", "simfphyssoundeditor_Idle", yy )
+		TextEntry( Frame, "#tool.simfphyssoundeditor.idle_sound", "simfphyssoundeditor_Idle", yy )
 		yy = yy + 50
-		Slider( Frame, "Pitch", "simfphyssoundeditor_IdlePitch", yy, 0, 2.55, 2 )
-		yy = yy + 50
-		
-		TextEntry( Frame, "Mid Sound:", "simfphyssoundeditor_Mid", yy)
-		yy = yy + 50
-		Slider( Frame, "Pitch", "simfphyssoundeditor_MidPitch", yy, 0, 2.55, 3 )
-		yy = yy + 50
-		Slider( Frame, "Volume", "simfphyssoundeditor_MidVolume", yy, 0, 1, 2 )
-		yy = yy + 50
-		Slider( Frame, "Fade out RPM %", "simfphyssoundeditor_MidFadeOutRPMpercent", yy, 0, 100, 0 )
-		yy = yy + 50
-		Slider( Frame, "Fade out rate\n(0 = instant)", "simfphyssoundeditor_MidFadeOutRate", yy, 0, 1, 2 )
+		Slider( Frame, "#tool.simfphyssoundeditor.pitch", "simfphyssoundeditor_IdlePitch", yy, 0, 2.55, 2 )
 		yy = yy + 50
 		
-		TextEntry( Frame, "High Sound:", "simfphyssoundeditor_High", yy)
+		TextEntry( Frame, "#tool.simfphyssoundeditor.mid_sound", "simfphyssoundeditor_Mid", yy)
 		yy = yy + 50
-		Slider( Frame, "Pitch", "simfphyssoundeditor_HighPitch", yy, 0, 2.55, 3 )
+		Slider( Frame, "#tool.simfphyssoundeditor.pitch", "simfphyssoundeditor_MidPitch", yy, 0, 2.55, 3 )
 		yy = yy + 50
-		Slider( Frame, "Volume", "simfphyssoundeditor_HighVolume", yy, 0, 1, 2 )
+		Slider( Frame, "#tool.simfphyssoundeditor.volume", "simfphyssoundeditor_MidVolume", yy, 0, 1, 2 )
 		yy = yy + 50
-		Slider( Frame, "Fade in RPM %", "simfphyssoundeditor_HighFadeInRPMpercent", yy, 0, 100, 0 )
+		Slider( Frame, "#tool.simfphyssoundeditor.fade_out_rpm", "simfphyssoundeditor_MidFadeOutRPMpercent", yy, 0, 100, 0 )
 		yy = yy + 50
-		Slider( Frame, "Fade in rate\n(0 = instant)", "simfphyssoundeditor_HighFadeInRate", yy, 0, 1, 2 )
+		Slider( Frame, "#tool.simfphyssoundeditor.fade_out_rate", "simfphyssoundeditor_MidFadeOutRate", yy, 0, 1, 2 )
 		yy = yy + 50
 		
-		TextEntry( Frame, "On Throttle Sound:", "simfphyssoundeditor_Throttle", yy)
+		TextEntry( Frame, "#tool.simfphyssoundeditor.high_sound", "simfphyssoundeditor_High", yy)
 		yy = yy + 50
-		Slider( Frame, "Pitch", "simfphyssoundeditor_ThrottlePitch", yy, 0, 2.55, 3 )
+		Slider( Frame, "#tool.simfphyssoundeditor.pitch", "simfphyssoundeditor_HighPitch", yy, 0, 2.55, 3 )
 		yy = yy + 50
-		Slider( Frame, "Volume", "simfphyssoundeditor_ThrottleVolume", yy, 0, 1, 2 )
+		Slider( Frame, "#tool.simfphyssoundeditor.volume", "simfphyssoundeditor_HighVolume", yy, 0, 1, 2 )
+		yy = yy + 50
+		Slider( Frame, "#tool.simfphyssoundeditor.fade_in_rpm", "simfphyssoundeditor_HighFadeInRPMpercent", yy, 0, 100, 0 )
+		yy = yy + 50
+		Slider( Frame, "#tool.simfphyssoundeditor.fade_out_rate", "simfphyssoundeditor_HighFadeInRate", yy, 0, 1, 2 )
+		yy = yy + 50
+		
+		TextEntry( Frame, "#tool.simfphyssoundeditor.on_throttle", "simfphyssoundeditor_Throttle", yy)
+		yy = yy + 50
+		Slider( Frame, "#tool.simfphyssoundeditor.pitch", "simfphyssoundeditor_ThrottlePitch", yy, 0, 2.55, 3 )
+		yy = yy + 50
+		Slider( Frame, "#tool.simfphyssoundeditor.volume", "simfphyssoundeditor_ThrottleVolume", yy, 0, 1, 2 )
 		yy = yy + 50
 	else
-		TextEntry( Frame, "Idle:", "simfphyssoundeditor_Idle", yy )
+		TextEntry( Frame, "#tool.simfphyssoundeditor.idle", "simfphyssoundeditor_Idle", yy )
 		yy = yy + 100
 		
-		TextEntry( Frame, "Gear Up:", "simfphyssoundeditor_ShiftUp", yy )
+		TextEntry( Frame, "#tool.simfphyssoundeditor.gear_up", "simfphyssoundeditor_ShiftUp", yy )
 		yy = yy + 50
-		TextEntry( Frame, "Gear Down:", "simfphyssoundeditor_ShiftDown", yy )
+		TextEntry( Frame, "#tool.simfphyssoundeditor.gear_down", "simfphyssoundeditor_ShiftDown", yy )
 		yy = yy + 50
-		TextEntry( Frame, "Gear (continue):", "simfphyssoundeditor_High", yy )
+		TextEntry( Frame, "#tool.simfphyssoundeditor.gear_continue", "simfphyssoundeditor_High", yy )
 		yy = yy + 50
-		Slider( Frame, "Pitch (Gear)", "simfphyssoundeditor_HighPitch", yy, 0, 2.55, 3 )
+		Slider( Frame, "#tool.simfphyssoundeditor.pitch_gear", "simfphyssoundeditor_HighPitch", yy, 0, 2.55, 3 )
 		yy = yy + 75
 		
-		TextEntry( Frame, "Revdown:", "simfphyssoundeditor_RevDown", yy )
+		TextEntry( Frame, "#tool.simfphyssoundeditor.revdown", "simfphyssoundeditor_RevDown", yy )
 		yy = yy + 50
-		TextEntry( Frame, "Revdown (continue):", "simfphyssoundeditor_Mid", yy )
+		TextEntry( Frame, "#tool.simfphyssoundeditor.revdown_continue", "simfphyssoundeditor_Mid", yy )
 		yy = yy + 50
-		Slider( Frame, "Pitch (Revdown)", "simfphyssoundeditor_MidPitch", yy, 0, 2.55, 3 )
+		Slider( Frame, "#tool.simfphyssoundeditor.pitch_revdown", "simfphyssoundeditor_MidPitch", yy, 0, 2.55, 3 )
 		yy = yy + 100
 		
 		
 		local Label = vgui.Create( "DLabel", Frame )
 		Label:SetPos( 0, yy )
 		Label:SetSize( 275, 40 )
-		Label:SetText( "Pitch (Master)" )
+		Label:SetText( "#tool.simfphyssoundeditor.pitch_master" )
 		Label:SetTextColor( Color(0,0,0,255) )
 		
 		local Slider = vgui.Create( "DNumSlider", Frame )
@@ -406,7 +401,7 @@ function TOOL.BuildCPanel( panel )
 	local Label = vgui.Create( "DLabel", panel )
 	Label:SetPos( 35, 85 )
 	Label:SetSize( 280, 40 )
-	Label:SetText( "Advanced Sound" )
+	Label:SetText( "#tool.simfphyssoundeditor.advanced_sound" )
 	Label:SetTextColor( Color(0,0,0,255) )
 	
 	local CheckBox = vgui.Create( "DCheckBoxLabel", panel )

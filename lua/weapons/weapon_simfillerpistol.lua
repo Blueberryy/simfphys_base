@@ -47,7 +47,7 @@ function SWEP:IsAimingAt( vpos )
 end
 
 if CLIENT then
-	SWEP.PrintName		= "Fuel filler pistol"
+	SWEP.PrintName		= "#simfphys_weapon_fuel_filterp"
 	SWEP.Slot				= 1
 	SWEP.SlotPos			= 12
 	SWEP.IconLetter			= "k"

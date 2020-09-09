@@ -1,6 +1,6 @@
 
 TOOL.Category		= "simfphys"
-TOOL.Name			= "#Wheel Model Editor"
+TOOL.Name			= "#tool.simfphyswheeleditor.name"
 TOOL.Command		= nil
 TOOL.ConfigName		= ""
 
@@ -12,10 +12,6 @@ TOOL.ClientConVar[ "offsetfront" ] = 0
 TOOL.ClientConVar[ "offsetrear" ] = 0
 
 if CLIENT then
-	language.Add( "tool.simfphyswheeleditor.name", "Wheel Model Editor" )
-	language.Add( "tool.simfphyswheeleditor.desc", "Changes the wheels for simfphys vehicles with CustomWheels Enabled" )
-	language.Add( "tool.simfphyswheeleditor.0", "Left click apply wheel model. Reload to reset" )
-	language.Add( "tool.simfphyswheeleditor.1", "Left click apply wheel model. Reload to reset" )
 end
 
 local function GetRight( ent, index, WheelPos )
@@ -399,7 +395,7 @@ function TOOL.BuildCPanel( panel )
 	
 	panel:AddControl( "Slider", 
 	{
-		Label 	= "Camber",
+		Label 	= "#tool.simfphyswheeleditor.camber",
 		Type 	= "Float",
 		Min 	= "-60",
 		Max 	= "60",
@@ -407,7 +403,7 @@ function TOOL.BuildCPanel( panel )
 	})
 	panel:AddControl( "Slider", 
 	{
-		Label 	= "Offset (Front)",
+		Label 	= "#tool.simfphyswheeleditor.offset_front",
 		Type 	= "Float",
 		Min 	= "-50",
 		Max 	= "50",
@@ -415,7 +411,7 @@ function TOOL.BuildCPanel( panel )
 	})
 	panel:AddControl( "Slider", 
 	{
-		Label 	= "Offset (Rear)",
+		Label 	= "#tool.simfphyswheeleditor.offset_rear",
 		Type 	= "Float",
 		Min 	= "-50",
 		Max 	= "50",
@@ -423,13 +419,13 @@ function TOOL.BuildCPanel( panel )
 	})
 	
 	panel:AddControl( "Label",  { Text = "" } )
-	panel:AddControl( "Label",  { Text = "Front Wheel Model" } )
+	panel:AddControl( "Label",  { Text = "#tool.simfphyswheeleditor.front_wheel" } )
 	panel:AddControl( "PropSelect", { Label = "", ConVar = "simfphyswheeleditor_frontwheelmodel", Height = 0, Models = list.Get( "simfphys_Wheels" ) } )
 	panel:AddControl( "Label",  { Text = "" } )
-	panel:AddControl( "Label",  { Text = "Rear Wheel Model" } )
+	panel:AddControl( "Label",  { Text = "#tool.simfphyswheeleditor.rear_wheel" } )
 	panel:AddControl( "Checkbox", 
 	{
-		Label 	= "same as front",
+		Label 	= "#tool.simfphyswheeleditor.same_as_front",
 		Command = "simfphyswheeleditor_sameasfront",
 	})	
 	panel:AddControl( "PropSelect", { Label = "", ConVar = "simfphyswheeleditor_rearwheelmodel", Height = 0, Models = list.Get( "simfphys_Wheels" ) } )

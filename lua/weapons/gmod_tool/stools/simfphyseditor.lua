@@ -1,6 +1,6 @@
 
 TOOL.Category		= "simfphys"
-TOOL.Name			= "#Vehicle Editor"
+TOOL.Name			= "#tool.simfphyseditor.title"
 TOOL.Command		= nil
 TOOL.ConfigName		= ""
 
@@ -24,29 +24,6 @@ TOOL.ClientConVar[ "powerdistribution" ] = 1
 TOOL.ClientConVar[ "efficiency" ] = 1.25
 
 if CLIENT then
-	language.Add( "tool.simfphyseditor.name", "simfphys vehicle editor" )
-	language.Add( "tool.simfphyseditor.desc", "A tool used to edit simfphys vehicles" )
-	language.Add( "tool.simfphyseditor.0", "Left click apply settings. Right click copy settings. Reload to reset" )
-	language.Add( "tool.simfphyseditor.1", "Left click apply settings. Right click copy settings. Reload to reset" )
-	
-	language.Add( "tool.simfphyseditor.steerspeed", "Steer Speed" )
-	language.Add( "tool.simfphyseditor.steerspeed.help", "How fast the steering will move to its target angle" )
-	language.Add( "tool.simfphyseditor.fastspeed", "Fast Steercone Fadespeed" )
-	language.Add( "tool.simfphyseditor.fastspeed.help", "At wich speed (gmod units per second) we want to fade from slow steer angle to fast steer angle" )
-	language.Add( "tool.simfphyseditor.faststeerang", "Fast Steer Angle" )
-	language.Add( "tool.simfphyseditor.faststeerang.help", "Steering angle at high speeds." )
-	language.Add( "tool.simfphyseditor.tractionbias", "Tractionbias" )
-	language.Add( "tool.simfphyseditor.tractionbias.help", "A negative value will get more understeer, a positive value more oversteer. NOTE: this will not affect under/oversteer caused by engine power." )
-	language.Add( "tool.simfphyseditor.powerdist", "Powerdistribution" )
-	language.Add( "tool.simfphyseditor.powerdist.help", "How much power goes to the front and rear wheels,   1 = rear wheel drive    -1 = front wheel drive     0 = all wheel drive with power distributed equally on front and rear wheels." )
-	language.Add( "tool.simfphyseditor.efficiency", "Efficiency" )
-	language.Add( "tool.simfphyseditor.efficiency.help", "This defines how good the wheels can put the engine power to the ground. Also may affect max torque and hand brake performance.  Its a cheap way to make your car accelerate faster without having to deal with griploss." )
-	language.Add( "tool.simfphyseditor.turbo", "Turbocharged" )
-	language.Add( "tool.simfphyseditor.turbo.help", "Enables Turbo sounds and increases torque at high RPM" )
-	language.Add( "tool.simfphyseditor.blower", "Supercharged" )
-	language.Add( "tool.simfphyseditor.blower.help", "Enables Supercharger sounds and increases torque at low to mid RPM" )
-	language.Add( "tool.simfphyseditor.revlimiter", "Revlimiter" )
-	language.Add( "tool.simfphyseditor.revlimiter.help", "Enables bouncy revlimiter. NOTE: This does not work if Limit RPM is less than 2500!" )
 end
 
 function TOOL:LeftClick( trace )
@@ -170,7 +147,7 @@ function TOOL.BuildCPanel( panel )
 	
 	panel:AddControl( "ComboBox", { MenuButton = 1, Folder = "simfphys", Options = { [ "#preset.default" ] = ConVarsDefault }, CVars = table.GetKeys( ConVarsDefault ) } )
 	panel:AddControl( "Label",  { Text = "" } )
-	panel:AddControl( "Label",  { Text = "--- Steering ---" } )
+	panel:AddControl( "Label",  { Text = "#tool.simfphyseditor.category.steering" } )
 	panel:AddControl( "Slider", 
 	{
 		Label 	= "#tool.simfphyseditor.steerspeed",
@@ -200,10 +177,10 @@ function TOOL.BuildCPanel( panel )
 	})
 
 	panel:AddControl( "Label",  { Text = "" } )
-	panel:AddControl( "Label",  { Text = "--- Engine ---" } )
+	panel:AddControl( "Label",  { Text = "#tool.simfphyseditor.category.engine" } )
 	panel:AddControl( "Slider", 
 	{
-		Label 	= "Engine Sound Preset",
+		Label 	= "#tool.simfphyseditor.engine_sound_preset",
 		Type 	= "Int",
 		Min 	= "-1",
 		Max 	= "14",
@@ -211,7 +188,7 @@ function TOOL.BuildCPanel( panel )
 	})
 	panel:AddControl( "Slider", 
 	{
-		Label 	= "Idle RPM",
+		Label 	= "#tool.simfphyseditor.idle_rpm",
 		Type 	= "Int",
 		Min 	= "1",
 		Max 	= "25000",
@@ -219,7 +196,7 @@ function TOOL.BuildCPanel( panel )
 	})
 	panel:AddControl( "Slider", 
 	{
-		Label 	= "Limit RPM",
+		Label 	= "#tool.simfphyseditor.limit_rpm",
 		Type 	= "Int",
 		Min 	= "4",
 		Max 	= "25000",
@@ -227,7 +204,7 @@ function TOOL.BuildCPanel( panel )
 	})
 	panel:AddControl( "Slider", 
 	{
-		Label 	= "Powerband Start",
+		Label 	= "#tool.simfphyseditor.powerband_start",
 		Type 	= "Int",
 		Min 	= "2",
 		Max 	= "25000",
@@ -235,7 +212,7 @@ function TOOL.BuildCPanel( panel )
 	})
 	panel:AddControl( "Slider", 
 	{
-		Label 	= "Powerband End",
+		Label 	= "#tool.simfphyseditor.powerband_end",
 		Type 	= "Int",
 		Min 	= "3",
 		Max 	= "25000",
@@ -243,7 +220,7 @@ function TOOL.BuildCPanel( panel )
 	})
 	panel:AddControl( "Slider", 
 	{
-		Label 	= "Max Torque",
+		Label 	= "#tool.simfphyseditor.max_torque",
 		Type 	= "Float",
 		Min 	= "20",
 		Max 	= "1000",
@@ -268,20 +245,20 @@ function TOOL.BuildCPanel( panel )
 		Help = true
 	})
 	panel:AddControl( "Label",  { Text = "" } )
-	panel:AddControl( "Label",  { Text = "--- Transmission ---" } )
+	panel:AddControl( "Label",  { Text = "#tool.simfphyseditor.category.transmission" } )
 	panel:AddControl( "Slider", 
 	{
-		Label 	= "DifferentialGear",
+		Label 	= "#tool.simfphyseditor.differentialgear",
 		Type 	= "Float",
 		Min 	= "0.2",
 		Max 	= "6",
 		Command = "simfphyseditor_diffgear"
 	})
 	panel:AddControl( "Label",  { Text = "" } )
-	panel:AddControl( "Label",  { Text = "--- Wheels ---" } )
+	panel:AddControl( "Label",  { Text = "#tool.simfphyseditor.category.wheels" } )
 	panel:AddControl( "Slider", 
 	{
-		Label 	= "Max Traction",
+		Label 	= "#tool.simfphyseditor.max_traction",
 		Type 	= "Float",
 		Min 	= "5",
 		Max 	= "1000",
@@ -298,7 +275,7 @@ function TOOL.BuildCPanel( panel )
 	})
 	panel:AddControl( "Slider", 
 	{
-		Label 	= "Brakepower",
+		Label 	= "#tool.simfphyseditor.brakepower",
 		Type 	= "Float",
 		Min 	= "0.1",
 		Max 	= "500",

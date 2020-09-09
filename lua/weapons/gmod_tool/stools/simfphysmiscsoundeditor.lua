@@ -1,5 +1,5 @@
 TOOL.Category		= "simfphys"
-TOOL.Name			= "#Sound Editor - Misc"
+TOOL.Name			= "#tool.simfphysmiscsoundeditor.title"
 TOOL.Command		= nil
 TOOL.ConfigName		= ""
 
@@ -11,11 +11,6 @@ TOOL.ClientConVar[ "HornSound" ] = "simulated_vehicles/horn_1.wav"
 TOOL.ClientConVar[ "BackfireSound" ] = ""
 
 if CLIENT then
-	language.Add( "tool.simfphysmiscsoundeditor.name", "Misc Sound Editor" )
-	language.Add( "tool.simfphysmiscsoundeditor.desc", "A tool used to edit miscellaneous sounds on simfphys vehicles" )
-	language.Add( "tool.simfphysmiscsoundeditor.0", "Left click apply settings. Right click copy settings. Reload to reset" )
-	language.Add( "tool.simfphysmiscsoundeditor.1", "Left click apply settings. Right click copy settings. Reload to reset" )
-	
 	presets.Add( "simfphys_miscsound", "Horn 0 - Out of my way", { simfphysmiscsoundeditor_HornSound	= "simulated_vehicles/horn_0.wav", } )
 	presets.Add( "simfphys_miscsound", "Horn 1", { simfphysmiscsoundeditor_HornSound	= "simulated_vehicles/horn_1.wav", } )
 	presets.Add( "simfphys_miscsound", "Horn 2", { simfphysmiscsoundeditor_HornSound	= "simulated_vehicles/horn_2.wav", } )
@@ -100,42 +95,42 @@ function TOOL.BuildCPanel( panel )
 	panel:AddControl( "Label",  { Text = "" } )
 	panel:AddControl( "Textbox", 
 	{
-		Label 	= "Turbo blowoff",
+		Label 	= "#tool.simfphysmiscsoundeditor.turbo_blowoff",
 		Command = "simfphysmiscsoundeditor_TurboBlowOff"
 	})	
 	
 	panel:AddControl( "Label",  { Text = "" } )
 	panel:AddControl( "Textbox", 
 	{
-		Label 	= "Turbo",
+		Label 	= "#tool.simfphysmiscsoundeditor.turbo",
 		Command = "simfphysmiscsoundeditor_TurboSpin"
 	})	
 	
 	panel:AddControl( "Label",  { Text = "" } )
 	panel:AddControl( "Textbox", 
 	{
-		Label 	= "Supercharger 1",
+		Label 	= "#tool.simfphysmiscsoundeditor.supercharger",
 		Command = "simfphysmiscsoundeditor_SuperChargerOn"
 	})	
 	
 	panel:AddControl( "Label",  { Text = "" } )
 	panel:AddControl( "Textbox", 
 	{
-		Label 	= "Supercharger 2",
+		Label 	= "#tool.simfphysmiscsoundeditor.supercharger2",
 		Command = "simfphysmiscsoundeditor_SuperChargerOff"
 	})
 	
 	panel:AddControl( "Label",  { Text = "" } )
 	panel:AddControl( "Textbox", 
 	{
-		Label 	= "Horn",
+		Label 	= "#tool.simfphysmiscsoundeditor.horn",
 		Command = "simfphysmiscsoundeditor_HornSound"
 	})	
 	
 	panel:AddControl( "Label",  { Text = "" } )
 	panel:AddControl( "Textbox", 
 	{
-		Label 	= "Backfire",
+		Label 	= "#tool.simfphysmiscsoundeditor.backfire",
 		Command = "simfphysmiscsoundeditor_BackfireSound"
 	})	
 

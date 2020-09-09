@@ -1,5 +1,5 @@
 TOOL.Category		= "simfphys"
-TOOL.Name		= "#Vehicle Duplicator"
+TOOL.Name		= "#tool.simfphysduplicator.name"
 TOOL.Command		= nil
 TOOL.ConfigName	= ""
 
@@ -41,11 +41,6 @@ if SERVER then
 end
 
 if CLIENT then
-	language.Add( "tool.simfphysduplicator.name", "Vehicle Duplicator" )
-	language.Add( "tool.simfphysduplicator.desc", "Copy, Paste or Save your Vehicles" )
-	language.Add( "tool.simfphysduplicator.0", "Left click to spawn or update. Right click to copy" )
-	language.Add( "tool.simfphysduplicator.1", "Left click to spawn or update. Right click to copy" )
-	
 	local selecteditem	= nil
 	local TOOLMemory	= {}
 	
@@ -115,7 +110,7 @@ if CLIENT then
 		GetSaves( ScrollPanel )
 		
 		local Button = vgui.Create( "DButton", panel )
-		Button:SetText( "Save" )
+		Button:SetText( "#tool.simfphysduplicator.save_button" )
 		Button:SetPos( 10, 350)
 		Button:SetSize( 280, 20 )
 		Button.DoClick = function( self )
@@ -123,7 +118,7 @@ if CLIENT then
 				local Frame = vgui.Create( "DFrame" )
 					Frame:SetPos( gui.MouseX() - 100,  gui.MouseY() - 30 )
 					Frame:SetSize( 280, 50 )
-					Frame:SetTitle( "Save As..." )
+					Frame:SetTitle( "#tool.simfphysduplicator.saveas_button" )
 					Frame:SetVisible( true )
 					Frame:ShowCloseButton( true )	
 					Frame:MakePopup()
@@ -177,7 +172,7 @@ if CLIENT then
 		end
 		
 		local Button = vgui.Create( "DButton", panel )
-		Button:SetText( "Load" )
+		Button:SetText( "#tool.simfphysduplicator.load_button" )
 		Button:SetPos( 10, 370)
 		Button:SetSize( 280, 20 )
 		Button.DoClick = function( self )
@@ -229,7 +224,7 @@ if CLIENT then
 		end
 		
 		local Button = vgui.Create( "DButton", panel )
-		Button:SetText( "Delete" )
+		Button:SetText( "#tool.simfphysduplicator.delete_button" )
 		Button:SetPos( 10, 430)
 		Button:SetSize( 280, 20 )
 		Button.DoClick = function( self )
@@ -244,7 +239,7 @@ if CLIENT then
 		end
 		
 		local Button = vgui.Create( "DButton", panel )
-		Button:SetText( "Refresh" )
+		Button:SetText( "#tool.simfphysduplicator.refresh_button" )
 		Button:SetPos( 10, 390)
 		Button:SetSize( 280, 20 )
 		Button.DoClick = function( self )
